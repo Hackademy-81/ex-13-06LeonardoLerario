@@ -106,20 +106,35 @@
 
 // Realizzare due campi di input (uno text e l'altro number) ed un bottone. Al click sul bottone dovra' crearsi una card contenente i dati scritti dall'utente nei campi di input. Se l'utente non riempie entrambi i campi dovra' apparire un alert per segnalare l'errore
 
+let inputText = document.querySelector('#inputText');
+let inputNumber = document.querySelector('#inputNumber');
+let button = document.querySelector('#button');
+let wrapper = document.querySelector('.wrapper');
 
-let inputText = document.querySelector('#inputText')
-let inputNumber = document.querySelector('#inputNumber')
-let button = document.querySelector('#button')
 
-button.addEventListener('click', ()=> {
-    let card = document.createElement('div');
-    div.innerHTML`
-    
-    <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    
-    `
+button.addEventListener('click', ()=>{
+
+   let div = document.createElement('div')
+    div.classList.add('col-12');
+    div.innerHTML = `
+    <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">${inputText.value}</h5>
+                      <p class="card-text">${inputNumber.value}</p>
+                    </div>
+                </div>
+    `;
+    if (inputText.value != '' && inputNumber.value != '') {
+        wrapper.appendChild(div);
+    }else{
+        alert ('inserire i campi qui sotto')
+    };
+
+
 });
+
+
+
 
 
 
